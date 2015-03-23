@@ -24,6 +24,22 @@ class FizzBuzzTestSuite extends FunSuite{
     }
   }
 
+  test("Given number not divisible by 3 or 5 should wield number") {
+    assert(FizzBuzz.translate(2) == "2")
+  }
+
+  test("Given number divisible by 3 should wield 'Fizz'") {
+    assert(FizzBuzz.translate(6) == "Fizz")
+  }
+
+  test("Given number divisible by 5 should wield 'Buzz'") {
+    assert(FizzBuzz.translate(5) == "Buzz")
+  }
+
+  test("Given number divisible by 3 and 5 should wield 'FizzBuzz'") {
+    assert(FizzBuzz.translate(15) == "FizzBuzz")
+  }
+
   test("Given parameter, should perform expected FizzBuzz output") {
     val testOutput = new ByteArrayOutputStream()
     Console.withOut(new PrintStream(testOutput)) {

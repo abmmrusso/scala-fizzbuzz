@@ -2,6 +2,22 @@ package net.toryu.playground.scala
 
 object FizzBuzz {
 
+  def translate(toTranslate: Int): String = {
+    if(toTranslate % 15 == 0) {
+      return "FizzBuzz"
+    }
+
+    if(toTranslate % 3 == 0) {
+      return "Fizz"
+    }
+
+    if(toTranslate % 5 == 0) {
+      return "Buzz"
+    }
+
+    return toTranslate.toString
+  }
+
   def main (args: Array[String]) {
     if(args.length == 0) {
       throw new IllegalArgumentException("No argument provided")
@@ -13,17 +29,6 @@ object FizzBuzz {
       throw new IllegalArgumentException("Provided upper bound is lower than one.")
     }
 
-    for(i <- 1 to upperBound) {
-      if(i % 3 == 0) {
-        print("Fizz")
-      }
-      if(i % 5 == 0) {
-        print("Buzz")
-      }
-      if(i % 3 != 0 && i % 5 != 0) {
-        print(i)
-      }
-      println()
-    }
+    (1 to upperBound).map(translate _ andThen println)
   }
 }
