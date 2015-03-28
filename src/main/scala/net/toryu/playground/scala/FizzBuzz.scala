@@ -3,19 +3,12 @@ package net.toryu.playground.scala
 object FizzBuzz {
 
   def translate(toTranslate: Int): String = {
-    if(toTranslate % 15 == 0) {
-      return "FizzBuzz"
+    return (toTranslate % 3, toTranslate % 5) match {
+      case (0,0) => "FizzBuzz"
+      case (0,_) => "Fizz"
+      case (_,0) => "Buzz"
+      case _ => toTranslate.toString
     }
-
-    if(toTranslate % 3 == 0) {
-      return "Fizz"
-    }
-
-    if(toTranslate % 5 == 0) {
-      return "Buzz"
-    }
-
-    return toTranslate.toString
   }
 
   def main (args: Array[String]) {
